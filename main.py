@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 
 def handlePage1(driver):
-    consent = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QR~QID11~1"))
+    consent = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QID11-1-label"))
     #consent = driver.find_element(By.ID, "QR~QID11~1")
     consent.click()
 
@@ -17,14 +17,14 @@ def handlePage2(driver):
     nextButton.click()
 
 def handlePage3(driver):
-    none = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QR~QID47~7"))
+    none = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QID47-7-label"))
     none.click()
 
     nextButton = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "NextButton"))
     nextButton.click()
 
 def handlePage4(driver):
-    none = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QR~QID46~14"))
+    none = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QID46-14-label"))
     none.click()
 
     nextButton = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "NextButton"))
@@ -41,3 +41,8 @@ def fillOutCheckAtURL(url):
     driver = webdriver.Firefox()
     fillOutCheckAtURLWithDriver(url, driver)
     driver.quit()
+
+u = input()
+print(u)
+input()
+fillOutCheckAtURL(u)
