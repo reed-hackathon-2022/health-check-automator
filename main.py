@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.firefox.options import Options
 
 def handlePage1(driver):
     consent = WebDriverWait(driver, timeout=3).until(lambda d: d.find_element(By.ID, "QID11-1-label"))
@@ -38,11 +39,17 @@ def fillOutCheckAtURLWithDriver(url, driver):
     handlePage4(driver)
 
 def fillOutCheckAtURL(url):
-    driver = webdriver.Firefox()
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(options=options)
     fillOutCheckAtURLWithDriver(url, driver)
     driver.quit()
 
+print("Input the URL:")
 u = input()
 print(u)
+print("Verify this URL is correct (by hitting any key)")
 input()
+print("Filling out check...")
 fillOutCheckAtURL(u)
+print("done")
